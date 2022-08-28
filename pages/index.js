@@ -1,15 +1,15 @@
-import React, { useState, useMemo } from 'react';
-import Head from "next/head";
-import { useRouter } from 'next/router';
-import Link from 'next/Link';
-import { DataGrid } from '@mui/x-data-grid';
-import { TextField, capitalize } from '@mui/material';
+import React, { useState, useMemo } from 'react'
+import Head from "next/head"
+import { useRouter } from 'next/router'
+import Link from 'next/Link'
+import { DataGrid } from '@mui/x-data-grid'
+import { TextField, capitalize } from '@mui/material'
 
-import styles from "../styles/PokemonList.module.css";
+import styles from "../styles/PokemonList.module.scss"
 
 const PokemonList = ({ pokemonList }) => {
-  const [pageSize, setPageSize] = useState(50);
-  const router = useRouter();
+  const [pageSize, setPageSize] = useState(50)
+  const router = useRouter()
 
   const columns = useMemo(() => [
     {
@@ -18,16 +18,16 @@ const PokemonList = ({ pokemonList }) => {
     { field: 'url', headerName: 'Details', renderCell: params => (
       <Link href={`/pokemon/${params.row.url.split('pokemon/')[1].replace('/' , '')}`}>View Details</Link>
     ), sortable: false, flex: 0.5 }
-  ], []);
+  ], [])
 
   const handleFilterByName = e => {
     if (e.target.value) {
       router.replace({
         pathname: '/',
         query: { name: e.target.value },
-      });
+      })
     } else {
-      router.replace('/');
+      router.replace('/')
     }
   }
 
@@ -65,17 +65,17 @@ const PokemonList = ({ pokemonList }) => {
         />
       </main>
     </div>
-  );
+  )
 }
 
-export default PokemonList;
+export default PokemonList
 
 export async function getServerSideProps({ query: { name: filterName } }) {
   const pokemonListResponse = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1154')
-    .then(res => res.json());
-  const regexp = new RegExp(filterName, 'i');
+    .then(res => res.json())
+  const regexp = new RegExp(filterName, 'i')
 
-  const pokemonList = pokemonListResponse.results.filter(pokemon => regexp.test(pokemon.name));
+  const pokemonList = pokemonListResponse.results.filter(pokemon => regexp.test(pokemon.name))
 
   return {
     props: {
