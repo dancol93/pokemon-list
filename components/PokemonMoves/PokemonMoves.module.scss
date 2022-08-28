@@ -1,0 +1,27 @@
+.container {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  padding: 30px;
+  text-align: center;
+  width: 50vw;
+  justify-content: space-around;
+
+  .icon:hover {
+    color: red;
+  }
+
+  .move {
+    cursor: pointer;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 40%;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
