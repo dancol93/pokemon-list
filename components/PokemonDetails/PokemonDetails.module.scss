@@ -1,0 +1,23 @@
+.container {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  padding: 30px;
+  text-align: center;
+  width: 50vw;
+
+  .formInfo {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+  }
+
+  .abilities, .basicInfo {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
+}
