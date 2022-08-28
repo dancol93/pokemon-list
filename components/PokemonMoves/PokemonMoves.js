@@ -15,6 +15,7 @@ const PokemonMoves = ({ moves, pokemonName, onDeleteMove }) => (
           <Chip
             key={move.name}
             className={styles.move}
+            data-testid='pokemon-move'
             deleteIcon={<Cancel className={styles.icon} />}
             label={convertToTitleCase(move.name)}
             onDelete={() => onDeleteMove(move.name)}
@@ -22,7 +23,7 @@ const PokemonMoves = ({ moves, pokemonName, onDeleteMove }) => (
         ))}
       </>
     ) : (
-      <Typography variant='h5'>{pokemonName} has no moves to be shown</Typography>
+      <Typography data-testid='no-moves-message' variant='h5'>{pokemonName} has no moves to be shown</Typography>
     )}
   </div>
 )
