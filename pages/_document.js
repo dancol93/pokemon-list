@@ -4,7 +4,7 @@ import createEmotionServer from '@emotion/server/create-instance';
 import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 
-export default class MyDocument extends Document {
+export default class DocumentLayout extends Document {
   render() {
     return (
       <Html lang="en">
@@ -28,7 +28,7 @@ export default class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = async (ctx) => {
+DocumentLayout.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
   const cache = createEmotionCache();

@@ -12,7 +12,7 @@ import createEmotionCache from '../src/createEmotionCache';
 
 const clientSideEmotionCache = createEmotionCache();
 
-export default function MyApp(props) {
+const AppLayout = props => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
@@ -28,7 +28,9 @@ export default function MyApp(props) {
   );
 }
 
-MyApp.propTypes = {
+export default AppLayout;
+
+AppLayout.propTypes = {
   Component: PropTypes.elementType.isRequired,
   emotionCache: PropTypes.object,
   pageProps: PropTypes.object.isRequired,
