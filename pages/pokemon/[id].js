@@ -28,7 +28,6 @@ export default Pokemon
 export const getServerSideProps = async ({ params: { id }}) => {
   const pokemonDetailsRaw = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     .then(res => res.json())
-  console.log(pokemonDetailsRaw);
   const pokemonForms = await Promise.all(
     pokemonDetailsRaw.forms.map(async form => fetch(form.url).then(res => res.json()))
   )

@@ -37,7 +37,7 @@ const PokemonDetails = ({ pokemonDetails }) => {
       ))}
       <Typography variant='h4'>Abilities</Typography>
       <div className={styles.abilities}>
-        {pokemonDetails.abilities.map(({ ability }) => console.log(ability) || (
+        {pokemonDetails.abilities.map(({ ability }) => (
           <Chip key={ability.name} label={convertToTitleCase(ability.name)} sx={{ margin: '0 10px'}} />
         ))}
       </div>
